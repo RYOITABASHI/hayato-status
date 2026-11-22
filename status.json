@@ -38,7 +38,7 @@
   },
   {
    "badge": "検証完了",
-   "detail": "本体＋結果の読み戻し（stage_install_result）が PR #194 でマージされ、本番 3047 に収録。読み戻しの実機検証は 3047 導入後",
+   "detail": "本体＋結果の読み戻し（stage_install_result）が PR #194 でマージされ、本番 3047 に収録。実機検証完了：Shelly 自身への stage_install で接続が切れた後、アプリ未起動のまま読み戻しが成功結果を返した（ヘッドレス経路まで実証）",
    "status": "done",
    "title": "stage_install（無人インストール）"
   },
@@ -85,5 +85,5 @@
    "title": "VD Phase 0"
   }
  ],
- "updatedAt": "2026-11-23 04:33 JST"
+ "updatedAt": "2026-11-23 04:52 JST"
 }
