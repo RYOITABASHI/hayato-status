@@ -67,9 +67,9 @@
    "title": "CI 短縮"
   },
   {
-   "badge": "進行中",
-   "detail": "PR #193 作成済み（scoped ゲート＋最終レビュー通過）。merge と本番ビルド待ち",
-   "status": "prog",
+   "badge": "完了",
+   "detail": "PR #193 マージ済み。本番 3047 に収録され、GitHub の README は新入口に切替済み",
+   "status": "done",
    "title": "Shelly README 改修"
   },
   {
@@ -85,5 +85,5 @@
    "title": "VD Phase 0"
   }
  ],
- "updatedAt": "2026-11-23 04:31 JST"
+ "updatedAt": "2026-11-23 04:33 JST"
 }
