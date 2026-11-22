@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<title>ハヤト作業ボード</title>
+<style>
+  :root{ --bg:#f4f4f6; --card:#ffffff; --text:#17181c; --muted:#6b7280; --border:#e3e4e8; }
+  @media (prefers-color-scheme: dark){ :root{ --bg:#101114; --card:#1b1c20; --text:#f2f3f5; --muted:#9aa1ad; --border:#2c2e35; } }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:var(--bg); color:var(--text); font-family:-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif; }
+  .wrap{ max-width:640px; margin:0 auto; padding:18px 14px 40px; }
+  h1{ font-size:19px; margin:2px 0 2px; }
+  .upd{ color:var(--muted); font-size:12.5px; margin-bottom:14px; }
+  .row{ display:flex; gap:9px; align-items:flex-start; background:var(--card); border:1px solid var(--border); border-radius:12px; padding:10px 12px; margin-bottom:8px; }
+  .dot{ flex:none; width:9px; height:9px; border-radius:50%; margin-top:6px; }
+  .done{ background:#2fbf71; } .prog{ background:#f5a623; } .wait{ background:#8a94a6; }
+  .main{ flex:1; min-width:0; }
+  .t{ font-weight:600; font-size:14.5px; line-height:1.4; }
+  .d{ font-size:13px; color:var(--muted); line-height:1.5; margin-top:1px; }
+  .s{ flex:none; font-size:11px; font-weight:700; padding:3px 8px; border-radius:99px; background:var(--bg); color:var(--muted); border:1px solid var(--border); margin-top:2px; }
+  .foot{ color:var(--muted); font-size:11.5px; text-align:center; margin-top:16px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>ハヤト作業ボード</h1>
+  <div class="upd" id="upd">読み込み中…</div>
+  <div id="list"></div>
+  <div class="foot">60秒ごとに自動更新</div>
+</div>
+<script>
+const FALLBACK = {"updatedAt":"2026-11-22 12:57 JST","tasks":[{"title":"YouTube 再生・広告ブロック","detail":"プライベート DNS で解決。再生 OK、再発したら報告","status":"done","badge":"完了"},{"title":"Shelly MCP 読み取り改善（D6）","detail":"PR #191 マージ済み、CI ビルド成功。帰宅後にインストール＋実機確認","status":"wait","badge":"帰宅待ち"},{"title":"adb 基盤（D1〜D3）","detail":"ゲート通過、新 supervisor 稼働中。残りは帰宅後のポート回転検証のみ","status":"done","badge":"ほぼ完了"},{"title":"ClosePaw 本体（D4+D5）","detail":"ゲート通過。PR #12 の CI 実行中（1回目は Maven Central の 429 で再実行）","status":"prog","badge":"CI中"},{"title":"ClosePaw 権限まわり（build 82）","detail":"manifest 版マージ＋CI 成功。帰宅後にインストール＋権限付与（ハヤト作業）","status":"wait","badge":"帰宅待ち"},{"title":"ClosePaw rebind 常設化","detail":"差し戻し6件の修正完了（モック35/35、ロック競合も修正）。ゲート第2ラウンド中","status":"prog","badge":"審査中"},{"title":"stage_install（無人インストール）","detail":"Shelly 側の typed op を実装中。ゲート＋フルスイート後に PR","status":"prog","badge":"実装中"},{"title":"MCP 縮退モード（Phase B）","detail":"外出中の実地確認は成立（12:28 に自動検出）。弱点2件が確定、監視継続中","status":"prog","badge":"監視中"},{"title":"Shelly .dev 実証","detail":"インストール済み・本番と共存確認済み。起動確認は帰宅後（一報つき）","status":"wait","badge":"帰宅待ち"},{"title":"VD Phase 0","detail":"PARTIAL で確定。proof2 の作り直しは ClosePaw 側の後続","status":"wait","badge":"保留"}]};
+function render(data){
+  document.getElementById('upd').textContent = '最終更新：' + data.updatedAt;
+  const list = document.getElementById('list');
+  list.innerHTML = '';
+  for(const task of data.tasks){
+    const row = document.createElement('div'); row.className = 'row';
+    const dot = document.createElement('span'); dot.className = 'dot ' + task.status;
+    const main = document.createElement('div'); main.className = 'main';
+    const t = document.createElement('div'); t.className = 't'; t.textContent = task.title;
+    const d = document.createElement('div'); d.className = 'd'; d.textContent = task.detail;
+    main.appendChild(t); main.appendChild(d);
+    const s = document.createElement('span'); s.className = 's'; s.textContent = task.badge;
+    row.appendChild(dot); row.appendChild(main); row.appendChild(s);
+    list.appendChild(row);
+  }
+}
+async function load(){
+  try{
+    const res = await fetch('status.json?t=' + Date.now(), {cache:'no-store'});
+    if(!res.ok) throw new Error(res.status);
+    render(await res.json());
+  }catch(e){ render(FALLBACK); }
+}
+render(FALLBACK);
+load();
+setInterval(load, 60000);
+</script>
+</body>
+</html>
