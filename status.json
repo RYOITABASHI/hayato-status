@@ -1,89 +1,101 @@
 {
- "tasks": [
-  {
-   "badge": "完了",
-   "detail": "プライベート DNS で解決。再生 OK、再発したら報告",
-   "status": "done",
-   "title": "YouTube 再生・広告ブロック"
-  },
-  {
-   "badge": "完了",
-   "detail": "PR #191/#192 ともにマージ済み。本番 3043 に含まれ、オーナー導入済み",
-   "status": "done",
-   "title": "Shelly MCP 読み取り改善（D6）"
-  },
-  {
-   "badge": "完了",
-   "detail": "systemd 常駐化・ポート自動追随・rebind 常設まで全件完了。切断→復旧は 20 秒に短縮",
-   "status": "done",
-   "title": "adb 基盤（D1〜D3）"
-  },
-  {
-   "badge": "進行中",
-   "detail": "build 99 稼働中（Shizuku 自動復旧＋結果報告の修正）。頭脳移行 r7a は隔離版でゲート中",
-   "status": "prog",
-   "title": "ClosePaw 本体（D4+D5）"
-  },
-  {
-   "badge": "完了",
-   "detail": "権限付与（pm grant）と型付き操作の実機検証まで完了",
-   "status": "done",
-   "title": "ClosePaw 権限まわり"
-  },
-  {
-   "badge": "完了",
-   "detail": "systemd 常駐。force-stop から復旧検証まで 9 秒を実証",
-   "status": "done",
-   "title": "ClosePaw rebind 常設化"
-  },
-  {
-   "badge": "検証完了",
-   "detail": "本体＋結果の読み戻し（stage_install_result）が PR #194 でマージされ、本番 3047 に収録。実機検証完了：Shelly 自身への stage_install で接続が切れた後、アプリ未起動のまま読み戻しが成功結果を返した（ヘッドレス経路まで実証）",
-   "status": "done",
-   "title": "stage_install（無人インストール）"
-  },
-  {
-   "badge": "完了",
-   "detail": "外出中の縮退運用を実地で実証済み（約3時間）",
-   "status": "done",
-   "title": "MCP 縮退モード（Phase B）"
-  },
-  {
-   "badge": "実証完了",
-   "detail": "Metro 接続成功（localhost/adb reverse）。編集→反映は数秒、初回バンドル転送のみ数分",
-   "status": "done",
-   "title": "Shelly .dev 実証（Metro）"
-  },
-  {
-   "badge": "完了",
-   "detail": "本番 3047 を公開済み（読み戻し機能を含む）。オーナー導入待ち",
-   "status": "done",
-   "title": "Shelly 本番ビルド"
-  },
-  {
-   "badge": "完了",
-   "detail": "Shelly のテスト分割で 1,680秒→1,257秒（-25%）。ClosePaw の3ジョブ化で約 -9%",
-   "status": "done",
-   "title": "CI 短縮"
-  },
-  {
-   "badge": "完了",
-   "detail": "PR #193 マージ済み。本番 3047 に収録され、GitHub の README は新入口に切替済み",
-   "status": "done",
-   "title": "Shelly README 改修"
-  },
-  {
-   "badge": "完了",
-   "detail": "Metro 実測完了（編集→反映 4 秒）。通常版 build-7 に復帰済み",
-   "status": "done",
-   "title": "council アプリ"
-  },
-  {
-   "badge": "保留",
-   "detail": "PARTIAL で確定。proof2 の作り直しは ClosePaw 側の後続",
-   "status": "wait",
-   "title": "VD Phase 0"
-  }
- ],
- "updatedAt": "2026-11-23 04:52 JST"
+  "tasks": [
+    {
+      "badge": "完了",
+      "detail": "プライベート DNS で解決。再生 OK、再発したら報告",
+      "status": "done",
+      "title": "YouTube 再生・広告ブロック"
+    },
+    {
+      "badge": "完了",
+      "detail": "PR #191/#192 ともにマージ済み。本番 3043 に含まれ、オーナー導入済み",
+      "status": "done",
+      "title": "Shelly MCP 読み取り改善（D6）"
+    },
+    {
+      "badge": "完了",
+      "detail": "systemd 常駐化・ポート自動追随・rebind 常設まで全件完了。切断→復旧は 20 秒に短縮",
+      "status": "done",
+      "title": "adb 基盤（D1〜D3）"
+    },
+    {
+      "badge": "進行中",
+      "detail": "build 99 稼働中（Shizuku 自動復旧＋結果報告の修正）。頭脳移行 r7a は隔離版でゲート中",
+      "status": "prog",
+      "title": "ClosePaw 本体（D4+D5）"
+    },
+    {
+      "badge": "完了",
+      "detail": "権限付与（pm grant）と型付き操作の実機検証まで完了",
+      "status": "done",
+      "title": "ClosePaw 権限まわり"
+    },
+    {
+      "badge": "完了",
+      "detail": "systemd 常駐。force-stop から復旧検証まで 9 秒を実証",
+      "status": "done",
+      "title": "ClosePaw rebind 常設化"
+    },
+    {
+      "badge": "検証完了",
+      "detail": "本体＋結果の読み戻し（stage_install_result）が PR #194 でマージされ、本番 3047 に収録。実機検証完了：Shelly 自身への stage_install で接続が切れた後、アプリ未起動のまま読み戻しが成功結果を返した（ヘッドレス経路まで実証）",
+      "status": "done",
+      "title": "stage_install（無人インストール）"
+    },
+    {
+      "badge": "完了",
+      "detail": "外出中の縮退運用を実地で実証済み（約3時間）",
+      "status": "done",
+      "title": "MCP 縮退モード（Phase B）"
+    },
+    {
+      "badge": "実証完了",
+      "detail": "Metro 接続成功（localhost/adb reverse）。編集→反映は数秒、初回バンドル転送のみ数分",
+      "status": "done",
+      "title": "Shelly .dev 実証（Metro）"
+    },
+    {
+      "badge": "完了",
+      "detail": "本番 3047 を公開済み（読み戻し機能を含む）。オーナー導入待ち",
+      "status": "done",
+      "title": "Shelly 本番ビルド"
+    },
+    {
+      "badge": "完了",
+      "detail": "Shelly のテスト分割で 1,680秒→1,257秒（-25%）。ClosePaw の3ジョブ化で約 -9%",
+      "status": "done",
+      "title": "CI 短縮"
+    },
+    {
+      "badge": "完了",
+      "detail": "PR #193 マージ済み。本番 3047 に収録され、GitHub の README は新入口に切替済み",
+      "status": "done",
+      "title": "Shelly README 改修"
+    },
+    {
+      "badge": "完了",
+      "detail": "Metro 実測完了（編集→反映 4 秒）。通常版 build-7 に復帰済み",
+      "status": "done",
+      "title": "council アプリ"
+    },
+    {
+      "badge": "保留",
+      "detail": "PARTIAL で確定。proof2 の作り直しは ClosePaw 側の後続",
+      "status": "wait",
+      "title": "VD Phase 0"
+    },
+    {
+      "title": "update_pipeline_config（typed op）",
+      "status": "done",
+      "note": "PR #198 マージ・production build 3055 公開済み。ブリッジの実機投入待ち（承認タップ調整はメイン経由）",
+      "updatedAt": "2026-11-24T03:48:06.483153+09:00"
+    },
+    {
+      "title": "research-numbers lint（自動投稿の品質ガード）",
+      "status": "prog",
+      "note": "fix batch 9 実行中（宣言成果物による分類）。re-gate 8 後に PR 予定",
+      "updatedAt": "2026-11-24T03:48:06.483153+09:00"
+    }
+  ],
+  "updatedAt": "2026-11-24T03:48:06.483153+09:00"
 }
